@@ -17,9 +17,10 @@ body = {
     }
 }
 
-es.indices.create(index=index, body=body)
-es.indices.refresh()
+if not es.indices.exists([index]):
+    es.indices.create(index=index, body=body)
+    es.indices.refresh()
 
-with open('NationalNames.csv') as f:
-    reader = csv.DictReader(f)
-    helpers.bulk(es, reader, index='baby_name_data')
+    with open('NationalNames.csv') as f:
+        reader = csv.DictReader(f)
+        helpers.bulk(es, reader, index=index)
