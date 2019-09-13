@@ -8,7 +8,7 @@ In order to run Elasticsearch/Kibana it is simple.  From the root of the repo, r
 
 Once that stack is up and running you can enter the python virtual environment and run the following file to import NationalNames.csv into your Elasticsearch instance.  From the root of the repo, run:
 + `source env/bin/activate`
-+ pip install elasticsearch
++ `pip install elasticsearch`
 + `python3 elastic_csv.py`
 
 When I ran it on my Macbook pro, uploading 1.8M csv records took about 1.5-2.0 minutes and this will vary according to what resources you've given your Docker container.
